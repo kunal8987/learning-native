@@ -3,6 +3,7 @@ import Day2 from "./component/Day2";
 import Day3 from "./component/Day3";
 import Day4 from "./component/Day4";
 import Day5 from "./component/Day5";
+import Day6 from "./component/Day6";
 
 export default function App() {
   return (
@@ -11,7 +12,8 @@ export default function App() {
       {/* <Day2/> */}
       {/* <Day3/> */}
       {/* <Day4 /> */}
-      <Day5 />
+      {/* <Day5 /> */}
+      <Day6 />
     </>
   );
 }
