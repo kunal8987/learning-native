@@ -4,6 +4,7 @@ import Day3 from "./component/Day3";
 import Day4 from "./component/Day4";
 import Day5 from "./component/Day5";
 import Day6 from "./component/Day6";
+import Todo from "./todo/Todo";
 
 export default function App() {
   return (
@@ -13,7 +14,8 @@ export default function App() {
       {/* <Day3/> */}
       {/* <Day4 /> */}
       {/* <Day5 /> */}
-      <Day6 />
+      {/* <Day6 /> */}
+      <Todo/>
     </>
   );
 }
