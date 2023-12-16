@@ -6,6 +6,7 @@ import Day5 from "./component/Day5";
 import Day6 from "./component/Day6";
 import Day7 from "./component/Day7";
 import Day8 from "./component/Day8";
+import Day9 from "./component/Day9";
 import Todo from "./todo/Todo";
 
 export default function App() {
@@ -19,7 +20,8 @@ export default function App() {
       {/* <Day6 /> */}
       {/* <Todo/> */}
       {/* <Day7/> */}
-      <Day8 />
+      {/* <Day8 /> */}
+      <Day9/>
     </>
   );
 }
