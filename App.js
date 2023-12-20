@@ -2,6 +2,7 @@ import Day1 from "./component/Day1";
 import Day10 from "./component/Day10";
 import Day11 from "./component/Day11";
 import Day12 from "./component/Day12";
+import Day13 from "./component/Day13";
 import Day2 from "./component/Day2";
 import Day3 from "./component/Day3";
 import Day4 from "./component/Day4";
@@ -27,7 +28,8 @@ export default function App() {
       {/* <Day9/> */}
       {/* <Day10/> */}
       {/* <Day11/> */}
-      <Day12/>
+      {/* <Day12/> */}
+      <Day13/>
     </>
   );
 }
