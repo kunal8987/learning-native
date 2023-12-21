@@ -4,6 +4,7 @@ import Day11 from "./component/Day11";
 import Day12 from "./component/Day12";
 import Day13 from "./component/Day13";
 import Day14 from "./component/Day14";
+import Day15 from "./component/Day15";
 import Day2 from "./component/Day2";
 import Day3 from "./component/Day3";
 import Day4 from "./component/Day4";
@@ -31,7 +32,8 @@ export default function App() {
       {/* <Day11/> */}
       {/* <Day12/> */}
       {/* <Day13/> */}
-      <Day14/>
+      {/* <Day14/> */}
+      <Day15/>
     </>
   );
 }
