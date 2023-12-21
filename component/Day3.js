@@ -12,6 +12,9 @@ export default function Day3() {
           //  properties:-
           //    multiline
           //    keyboardType= "numeric"
+          // autoCapitalize="none"
+          // autoCorrect={false}
+          // secureTextEntry   for passwords only
           placeholder="Enter Your Name"
           style={styles.inputText}
           onChangeText={(val) => setName(val)}
