@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
+  ActivityIndicator,
   FlatList,
   SafeAreaView,
   StatusBar,
@@ -10,6 +11,9 @@ import {
 
 const Day16 = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  //   GETTING DATA FROM FETCH REQUEST
 
   const getData = async () => {
     let response = await fetch("https://jsonplaceholder.typicode.com/posts");
@@ -17,11 +21,30 @@ const Day16 = () => {
     let post = await response.json();
 
     setData(post);
+    setLoading(false);
   };
+
+  //   RENDER DATA ON LOADING THE APP
 
   useEffect(() => {
     getData();
   }, []);
+
+  // LOADING STATE IF DATA IS ON LOADING
+
+  if (loading) {
+    return (
+      <SafeAreaView style={styles.loadingBox}>
+        <View>
+          <ActivityIndicator size={"large"} color={"#FF6C22"} />
+          <Text style={{ textAlign: "center" }}>Loading...</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  //ELSE RENDER THE FLATlIST
+
   return (
     <SafeAreaView style={styles.container}>
       <View>
@@ -35,7 +58,13 @@ const Day16 = () => {
               </View>
             );
           }}
+
+          // SEPARATE THE CARD WITH THE HEIGHT OF 16PX
+
           ItemSeparatorComponent={() => <View style={{ height: 16 }} />}
+
+          //IF API IS NOT RESPONDING THE SHOW THE LIST EMPTY COMPONENT
+
           ListEmptyComponent={
             <Text
               style={{ textAlign: "center", fontSize: 20, paddingVertical: 10 }}
@@ -43,6 +72,9 @@ const Day16 = () => {
               No Data Found
             </Text>
           }
+
+          // GIVE HEADING TO THE LIST OF CARD
+
           ListHeaderComponent={
             <Text
               style={{ textAlign: "center", fontSize: 20, paddingVertical: 10 }}
@@ -50,6 +82,9 @@ const Day16 = () => {
               List Start From Here
             </Text>
           }
+          
+          // GIVE FOOTER TO THE LIST OF CARD
+
           ListFooterComponent={
             <Text
               style={{ textAlign: "center", fontSize: 20, paddingVertical: 10 }}
@@ -86,5 +121,11 @@ const styles = StyleSheet.create({
   body: {
     fontSize: 20,
     color: "#BB9CC0",
+  },
+  loadingBox: {
+    flex: 1,
+    justifyContent: "center",
+    alignContent: "center",
+    padding: StatusBar.currentHeight,
   },
 });
