@@ -12,11 +12,14 @@ import {
 const Day16 = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
 
   //   GETTING DATA FROM FETCH REQUEST
 
-  const getData = async () => {
-    let response = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const getData = async (limit = 10) => {
+    let response = await fetch(
+      `https://jsonplaceholder.typicode.com/posts?_limit=${limit}`
+    );
 
     let post = await response.json();
 
@@ -29,6 +32,12 @@ const Day16 = () => {
   useEffect(() => {
     getData();
   }, []);
+
+  const handleRefresh = () => {
+    setRefreshing(true);
+    getData(20);
+    setRefreshing(false);
+  };
 
   // LOADING STATE IF DATA IS ON LOADING
 
@@ -58,11 +67,9 @@ const Day16 = () => {
               </View>
             );
           }}
-
           // SEPARATE THE CARD WITH THE HEIGHT OF 16PX
 
           ItemSeparatorComponent={() => <View style={{ height: 16 }} />}
-
           //IF API IS NOT RESPONDING THE SHOW THE LIST EMPTY COMPONENT
 
           ListEmptyComponent={
@@ -72,7 +79,6 @@ const Day16 = () => {
               No Data Found
             </Text>
           }
-
           // GIVE HEADING TO THE LIST OF CARD
 
           ListHeaderComponent={
@@ -82,7 +88,6 @@ const Day16 = () => {
               List Start From Here
             </Text>
           }
-          
           // GIVE FOOTER TO THE LIST OF CARD
 
           ListFooterComponent={
@@ -92,6 +97,8 @@ const Day16 = () => {
               List End Here
             </Text>
           }
+          refreshing={refreshing}
+          onRefresh={handleRefresh}
         />
       </View>
     </SafeAreaView>
